@@ -13,13 +13,9 @@
 #include "ParticleManager.h"
 #include "FbxObject3d.h"
 #include "FbxModel.h"
-#include "Player.h"
 #include "RailCamera.h"
-#include "Enemy.h"
 #include "CollisionManager.h"
-#include "Boss.h"
 #include "JsonLoader.h"	
-#include "energy.h"
 
 
 class GameScene {
@@ -37,9 +33,9 @@ public:
 	void Draw();
 	void Reset();
 
-	Vector3 GetScreenToWorldPos(Sprite& sprite_, RailCamera* rail);
-	Vector3 GetWorldToScreenPos(Vector3 pos_, RailCamera* rail);
-	Vector2 GetWorldToScreenScale(Object3d* obj, RailCamera* rail);
+	Vector3 GetScreenToWorldPos(Sprite& sprite_, ViewProjection* view);
+	Vector3 GetWorldToScreenPos(Vector3 pos_, ViewProjection* view);
+	Vector2 GetWorldToScreenScale(Object3d* obj, ViewProjection* view);
 
 private:
 	//base

@@ -118,9 +118,9 @@ void GameScene::Reset() {
 	
 }
 
-Vector3 GameScene::GetScreenToWorldPos(Sprite& sprite_, RailCamera* rail)
+Vector3 GameScene::GetScreenToWorldPos(Sprite& sprite_, ViewProjection* view)
 {
-	if (rail == nullptr) {
+	if (view == nullptr) {
 		return Vector3(0, 0, 1);
 	}
 
@@ -138,8 +138,8 @@ Vector3 GameScene::GetScreenToWorldPos(Sprite& sprite_, RailCamera* rail)
 	Matrix4 invProjection = projection;
 	invProjection.MakeInverse();
 	//ビュー行列//
-	Matrix4 view = viewProjection->GetMatView();
-	Matrix4 invView = view;
+	Matrix4 view_ = viewProjection->GetMatView();
+	Matrix4 invView = view_;
 	invView.MakeInverse();
 	////合成行列の逆行列を計算する
 	Matrix4 matInverseVPV = invViewPort * invProjection * invView;
@@ -163,14 +163,14 @@ Vector3 GameScene::GetScreenToWorldPos(Sprite& sprite_, RailCamera* rail)
 	return translate;
 }
 
-Vector3 GameScene::GetWorldToScreenPos(Vector3 pos_, RailCamera* rail)
+Vector3 GameScene::GetWorldToScreenPos(Vector3 pos_, ViewProjection* view)
 {
-	if (rail == nullptr) {
+	if (view == nullptr) {
 		return Vector3(0, 0, 0);
 	}
 
 	//ビュー行列//
-	Matrix4 view = viewProjection->GetMatView();
+	Matrix4 view_ = viewProjection->GetMatView();
 	//プロジェクション行列//
 	float fovAngleY = 45.0f * (3.141592f / 180.0f);;
 	float aspectRatio = (float)WinApp::window_width / WinApp::window_height;
@@ -179,7 +179,7 @@ Vector3 GameScene::GetWorldToScreenPos(Vector3 pos_, RailCamera* rail)
 	//ビューポート行列生成
 	Matrix4 viewPort = viewPort.ViewPortMat(WinApp::window_width, WinApp::window_height, Vector2(0.0f, 0.0f));
 
-	Matrix4 matVPV = view * projection * viewPort;
+	Matrix4 matVPV = view_ * projection * viewPort;
 
 	Matrix4 mat;
 	Vector3 posScreen = pos_;
@@ -189,13 +189,13 @@ Vector3 GameScene::GetWorldToScreenPos(Vector3 pos_, RailCamera* rail)
 	return posScreen;
 }
 
-Vector2 GameScene::GetWorldToScreenScale(Object3d* obj, RailCamera* rail)
+Vector2 GameScene::GetWorldToScreenScale(Object3d* obj, ViewProjection* view)
 {
-	if (rail == nullptr) {
+	if (view == nullptr) {
 		return Vector2(0, 0);
 	}
 
-	Vector3 v = obj->GetPosition() - rail->GetView()->GetEye();
+	Vector3 v = obj->GetPosition() - view->GetEye();
 	v.normalize();
 	float len = v.length();
 

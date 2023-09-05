@@ -91,7 +91,7 @@
     <Filter Include="ソースファイル\Engine\Collision">
       <UniqueIdentifier>{6d468e4a-84a8-4f43-aa92-3bd8a1d2e728}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Collision">
+    <Filter Include="ヘッダー ファイル\Engine\Collision">
       <UniqueIdentifier>{9db64233-bb0d-4897-ba7c-418dd1007c1e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -319,28 +319,28 @@
       <Filter>ヘッダー ファイル\Engine\Camera</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\BaseCollider.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\Collision.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\CollisionInfo.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\CollisionManager.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\CollisionPrimitive.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\CollisionTypes.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\RaycastHit.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\collision\SphereCollider.h">
-      <Filter>ヘッダー ファイル\Collision</Filter>
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
     </ClInclude>
     <ClInclude Include="engine\base\FPSFixed.h">
       <Filter>ヘッダー ファイル\Engine\Base</Filter>
